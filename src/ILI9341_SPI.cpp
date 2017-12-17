@@ -237,6 +237,7 @@ void ILI9341_SPI::init(void) {
 
 
   if (hwSPI) spi_begin();
+  if (!(_rst>0)) writecommand(ILI9341_SWRESET);     // software reset
   writecommand(0xEF);
   writedata(0x03);
   writedata(0x80);
